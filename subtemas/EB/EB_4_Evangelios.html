@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">EVANGELIOS</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+Fundamento bíblico
+
+Los Evangelios constituyen el corazón narrativo y teológico del Nuevo Testamento. En ellos no solo se relata la vida de Jesús, sino que se proclama el significado salvífico de su persona, sus palabras y sus obras. Los Evangelios no son biografías modernas ni tratados sistemáticos, sino testimonio inspirado de que Dios ha actuado decisivamente en la historia por medio de Jesucristo. “Estas cosas se han escrito para que creáis que Jesús es el Cristo, el Hijo de Dios, y para que creyendo tengáis vida en su nombre” (Jn 20,31).
+
+Mateo, Marcos, Lucas y Juan presentan una misma buena noticia desde perspectivas complementarias: el Reino de Dios ha llegado en la persona de Jesús.
+
+Jesús y el anuncio del Reino de Dios
+
+El eje central del mensaje de Jesús es el Reino de Dios. “El tiempo se ha cumplido, y el reino de Dios se ha acercado; arrepentíos, y creed en el evangelio” (Mc 1,15). El Reino no es meramente un futuro lejano ni un sistema político, sino la acción soberana de Dios que irrumpe en la historia para restaurar lo que el pecado ha quebrado.
+
+Jesús anuncia el Reino como buena noticia y llama a una respuesta concreta: arrepentimiento y fe. El anuncio no es neutral ni automático; interpela al oyente y exige decisión.
+
+La identidad de Jesús en los Evangelios
+
+Los Evangelios presentan progresivamente la identidad de Jesús. Él es verdadero hombre, nacido de mujer (Lc 2,7), sujeto al dolor y a la muerte (Mc 15,37), pero también es el Hijo amado del Padre (Mt 3,17), con autoridad divina para perdonar pecados (Mc 2,5–7) y señorío sobre la creación (Mc 4,39–41).
+
+Jesús se presenta como el enviado del Padre: “Porque he descendido del cielo, no para hacer mi voluntad, sino la voluntad del que me envió” (Jn 6,38). En Él, Dios se acerca de manera personal, visible y concreta.
+
+Llamado, respuesta y discipulado
+
+Un rasgo constante de los Evangelios es el llamado de Jesús a seguirle. “Sígueme” (Mt 9,9). Este llamado no se impone por la fuerza, sino que invita a una respuesta libre y consciente. Algunos responden con fe, otros se resisten, otros se apartan (Jn 6,66).
+
+El discipulado implica escuchar, obedecer y perseverar. “Si alguno quiere venir en pos de mí, niéguese a sí mismo” (Mc 8,34). El lenguaje de Jesús presupone una respuesta real, no una inclusión automática en el Reino.
+
+Jesús y los pecadores
+
+Los Evangelios muestran a Jesús acercándose de manera intencional a los pecadores, marginados y excluidos. “No he venido a llamar a justos, sino a pecadores, al arrepentimiento” (Lc 5,32). Su mesa abierta expresa el carácter misericordioso de Dios.
+
+Sin embargo, esta misericordia no elimina el llamado al cambio. A la mujer sorprendida en adulterio Jesús le dice: “Vete, y no peques más” (Jn 8,11). La gracia restaura, pero también transforma.
+
+Parábolas del Reino y responsabilidad humana
+
+Las parábolas ocupan un lugar central en la enseñanza de Jesús. En ellas se revela el misterio del Reino de Dios de manera accesible, pero exigente. Parábolas como el sembrador (Mt 13,3–23) muestran que la respuesta al mensaje varía según la disposición del corazón.
+
+Jesús explica que algunos oyen y no entienden, otros reciben con gozo pero no perseveran, y otros producen fruto. La diferencia no está en el sembrador ni en la semilla, sino en la respuesta humana.
+
+La voluntad salvífica de Dios en los Evangelios
+
+Los Evangelios presentan a un Dios que desea la vida y la restauración. Jesús llora sobre Jerusalén por su resistencia: “¡Cuántas veces quise juntar a tus hijos… y no quisiste!” (Mt 23,37). Esta afirmación revela una voluntad divina frustrada por la negativa humana, no por una falta de poder.
+
+Jesús invita abiertamente: “Venid a mí todos los que estáis trabajados y cargados” (Mt 11,28). El llamado es universal en su alcance y sincero en su intención.
+
+La cruz en los Evangelios
+
+La cruz no es un accidente ni una derrota, sino el centro de la misión de Jesús. “El Hijo del Hombre vino… para dar su vida en rescate por muchos” (Mc 10,45). Jesús entrega su vida voluntariamente (Jn 10,18), en obediencia al Padre y por amor a los seres humanos.
+
+En la cruz se revela simultáneamente la gravedad del pecado y la profundidad del amor divino. El perdón ofrecido desde la cruz (Lc 23,34) muestra que incluso en el rechazo humano, Dios sigue ofreciendo gracia.
+
+La resurrección como vindicación y esperanza
+
+Los Evangelios culminan en la resurrección corporal de Jesús. “No está aquí, sino que ha resucitado” (Lc 24,6). La resurrección confirma la identidad de Jesús y valida su mensaje.
+
+La resurrección inaugura una nueva etapa en la historia de la salvación y fundamenta la esperanza de vida eterna. “Porque yo vivo, vosotros también viviréis” (Jn 14,19).
+
+Los Evangelios y la fe
+
+El propósito explícito de los Evangelios es suscitar fe. “Estas cosas se han escrito para que creáis” (Jn 20,31). La fe no es impuesta ni automática, sino una respuesta confiada al testimonio sobre Jesús.
+
+Creer implica recibir a Cristo (Jn 1,12), permanecer en Él (Jn 15,4) y obedecer su palabra (Jn 8,31). La incredulidad no se presenta como imposibilidad decretada, sino como rechazo responsable (Jn 5,40).
+
+Los Evangelios como norma interpretativa
+
+Los Evangelios ocupan un lugar normativo dentro de la Escritura porque en ellos se manifiesta de manera plena el carácter de Dios y su propósito salvador. Toda teología cristiana debe ser compatible con la enseñanza, el tono y el espíritu del Jesús de los Evangelios.
+
+En Cristo vemos a un Dios que llama, invita, confronta, perdona y espera respuesta. Un Dios que no fuerza la fe, pero tampoco renuncia a su llamado.
+</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>

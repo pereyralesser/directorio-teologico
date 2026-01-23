@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">HERMENÉUTICA BÍBLICA</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+Fundamento bíblico
+
+La hermenéutica cristiana no es un conjunto de técnicas neutrales, sino una disciplina teológica que surge de una convicción previa: Dios ha hablado y su Palabra puede ser comprendida. La Escritura no es un enigma reservado a una élite ni un texto oscuro cuyo sentido último permanece oculto, sino revelación dada para ser oída, entendida y obedecida. “Las cosas reveladas son para nosotros y para nuestros hijos para siempre” (Dt 29,29).
+
+La interpretación bíblica comienza con la confianza en que Dios se comunica de manera inteligible y fiel.
+
+La Escritura como Palabra inspirada de Dios
+
+La hermenéutica cristiana parte del reconocimiento de la inspiración divina de la Escritura. “Toda la Escritura es inspirada por Dios” (2 Tim 3,16). Esto significa que la Biblia no es meramente un testimonio humano sobre Dios, sino Palabra de Dios comunicada mediante autores humanos reales.
+
+Esta inspiración no anula la historia, el lenguaje ni la personalidad de los escritores. “Los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo” (2 Pe 1,21). Por tanto, la interpretación bíblica exige atención al contexto histórico, literario y teológico de cada texto.
+
+Dios se revela con claridad suficiente
+
+La Escritura afirma que la revelación de Dios es clara en lo esencial. “La exposición de tus palabras alumbra; hace entender a los simples” (Sal 119,130). Esta claridad no implica que todo pasaje sea igualmente fácil, sino que lo necesario para la fe y la salvación está accesible al creyente.
+
+La Biblia reconoce que hay textos difíciles (2 Pe 3,16), pero nunca presenta la Palabra como inherentemente engañosa o contradictoria. Dios no revela para confundir, sino para guiar: “Lámpara es a mis pies tu palabra” (Sal 119,105).
+
+Cristo como clave hermenéutica
+
+Jesucristo es el centro interpretativo de toda la Escritura. Él mismo afirma que las Escrituras dan testimonio de Él (Jn 5,39). Después de su resurrección, Jesús interpreta la Ley, los Profetas y los Salmos como anuncio de su persona y su obra (Lc 24,27; 44).
+
+Toda lectura bíblica que contradiga el carácter revelado de Dios en Cristo debe ser revisada. La hermenéutica cristiana no parte de decretos abstractos, sino del evangelio. Cristo es la imagen visible del Dios invisible (Col 1,15) y, por tanto, el criterio último para comprender correctamente la revelación.
+
+La analogía de la fe
+
+La Escritura se interpreta a sí misma. “Comparando lo espiritual con lo espiritual” (1 Co 2,13). Ningún pasaje debe ser aislado del conjunto del testimonio bíblico. La analogía de la fe implica leer cada texto en armonía con el mensaje global de la Escritura.
+
+Los textos claros iluminan a los más complejos, y ninguna interpretación válida puede contradecir verdades afirmadas de manera reiterada y explícita, como el carácter bueno de Dios, la centralidad de Cristo o la responsabilidad humana.
+
+Contexto histórico y literario
+
+La Biblia fue escrita en contextos históricos concretos y en géneros literarios diversos. La correcta interpretación exige respetar estos factores. “Desde niño has sabido las Sagradas Escrituras” (2 Tim 3,15), lo cual presupone aprendizaje, enseñanza y discernimiento.
+
+Narrativa, poesía, profecía, sabiduría y epístola no se interpretan del mismo modo. Ignorar el género conduce a lecturas forzadas y conclusiones ajenas a la intención del texto.
+
+El papel del Espíritu Santo en la interpretación
+
+El Espíritu Santo, quien inspiró la Escritura, ilumina al lector para comprenderla. “El hombre natural no percibe las cosas que son del Espíritu de Dios” (1 Co 2,14). Esta iluminación no introduce nuevos significados ocultos, sino que permite comprender y aplicar correctamente el sentido del texto.
+
+El Espíritu no contradice la Escritura ni la razón, sino que obra a través de ambas. Además, la Escritura advierte que el Espíritu puede ser resistido (Hch 7,51), por lo que la correcta interpretación requiere humildad y disposición obediente.
+
+La responsabilidad del intérprete
+
+La Biblia llama a interpretar con diligencia y responsabilidad. “Procura con diligencia presentarte a Dios aprobado… que usa bien la palabra de verdad” (2 Tim 2,15). El intérprete no es dueño del texto, sino su servidor.
+
+Esto excluye lecturas arbitrarias, manipulaciones doctrinales y sistemas que imponen conclusiones ajenas al texto. La hermenéutica bíblica no busca confirmar prejuicios, sino escuchar lo que Dios ha dicho.
+
+Advertencia contra la lectura determinista
+
+La Escritura advierte contra interpretaciones que anulan la responsabilidad humana o presentan a Dios como contradictorio consigo mismo. Dios no se deleita en la muerte del impío (Ez 18,23), llama sinceramente al arrepentimiento (Hch 17,30) y lamenta la incredulidad humana (Mt 23,37).
+
+Una hermenéutica que convierte estos llamados en meras apariencias retóricas entra en tensión con el carácter revelado de Dios y con el testimonio bíblico en su conjunto.
+
+La comunidad de fe como ámbito interpretativo
+
+La interpretación bíblica no es un acto aislado. La Iglesia es “columna y baluarte de la verdad” (1 Tim 3,15). La Escritura es leída, enseñada y discernida en comunidad, bajo la guía del Espíritu y a la luz de la tradición cristiana.
+
+Esto no implica sometimiento acrítico a sistemas teológicos, sino diálogo responsable con la historia de la fe.
+
+Hermenéutica orientada a la vida
+
+La finalidad de la interpretación bíblica no es la especulación, sino la obediencia. “Sed hacedores de la palabra, y no tan solamente oidores” (Stg 1,22). Toda interpretación que no conduzca a la fe viva, al amor y a la transformación del carácter ha perdido su rumbo.
+
+Una hermenéutica coherente con el carácter de Dios
+
+Esta aproximación hermenéutica ha sido desarrollada de manera consistente dentro de la tradición cristiana clásica y defendida con particular claridad por Jacobo Arminio, quien sostuvo que la Escritura debe ser interpretada de modo que preserve simultáneamente la gloria de Dios, la centralidad de Cristo y la responsabilidad real del ser humano.
+</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>
