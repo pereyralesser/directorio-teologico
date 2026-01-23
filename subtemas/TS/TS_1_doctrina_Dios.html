@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">DOCTRINA DE DIOS</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+
+                <p>Toda teología cristiana comienza con Dios porque Dios mismo se ha dado a conocer. No hablamos de un Dios deducido por la razón humana, sino del Dios que se revela y se deja conocer en la historia. "Dios, habiendo hablado muchas veces y de muchas maneras en otro tiempo a los padres por los profetas, en estos postreros días nos ha hablado por el Hijo" (Heb 1,1–2).</p>
+
+                <p>La Escritura afirma la existencia de un solo Dios, eterno y personal, creador de todo cuanto existe: "En el principio creó Dios los cielos y la tierra" (Gn 1,1); "Antes que naciesen los montes… desde el siglo y hasta el siglo, tú eres Dios" (Sal 90,2). Este Dios no es una energía impersonal, sino un Ser que conoce, ama y actúa: "Yo soy el Señor, y no hay otro" (Is 45,5).</p>
+
+                <p>Dios es Trinidad: comunión eterna de amor</p>
+
+                <p>La revelación bíblica confiesa a Dios como Padre, Hijo y Espíritu Santo. Jesús habla con el Padre y es enviado por Él (Jn 5,19–23); el Espíritu procede del Padre y del Hijo y da testimonio de Cristo (Jn 15,26). La fórmula bautismal une a las tres personas en una misma identidad divina: "En el nombre del Padre, y del Hijo, y del Espíritu Santo" (Mt 28,19).</p>
+
+                <p>Esta comunión trinitaria muestra que el amor no es un atributo adquirido, sino eterno: "Dios es amor" (1 Jn 4,8). Antes de la creación ya existía relación, don y comunión en Dios mismo (Jn 17,24).</p>
+
+                <p>Dios es santo y bueno</p>
+
+                <p>La santidad de Dios no lo separa de su creación como si fuera inaccesible, sino que expresa la perfección moral de su carácter. "Santo, santo, santo es el Señor de los ejércitos" (Is 6,3). Su santidad es inseparable de su bondad: "Bueno es el Señor para con todos, y sus misericordias sobre todas sus obras" (Sal 145,9).</p>
+
+                <p>La Escritura es explícita al afirmar que en Dios no hay maldad ni arbitrariedad: "Dios es luz, y no hay ningunas tinieblas en él" (1 Jn 1,5). Su justicia no es opuesta a su amor, sino expresión de él: "Justo es el Señor en todos sus caminos, y misericordioso en todas sus obras" (Sal 145,17).</p>
+
+                <p>Dios es soberano, pero no autor del pecado</p>
+
+                <p>La Biblia afirma sin ambigüedad la soberanía de Dios: "Nuestro Dios está en los cielos; todo lo que quiso ha hecho" (Sal 115,3). Nada escapa a su conocimiento: "Conoce el Señor a los que son suyos" (2 Tim 2,19). Sin embargo, la Escritura niega de manera explícita que Dios sea el autor moral del mal: "Cuando alguno es tentado, no diga que es tentado de parte de Dios; porque Dios no puede ser tentado por el mal, ni él tienta a nadie" (Stg 1,13).</p>
+
+                <p>Dios gobierna la historia sin violar la responsabilidad humana. José puede decir a sus hermanos: "Vosotros pensasteis mal contra mí, mas Dios lo encaminó a bien" (Gn 50,20). El mismo acto puede tener una intención humana pecaminosa y un propósito divino redentor, sin que Dios sea autor del pecado.</p>
+
+                <p>Por eso la Escritura afirma simultáneamente la soberanía divina y la responsabilidad humana: "He puesto delante de ti la vida y la muerte… escoge, pues, la vida" (Dt 30,19).</p>
+
+                <p>Dios se revela plenamente en Jesucristo</p>
+
+                <p>La revelación definitiva de Dios no es un decreto oculto, sino una persona. "El que me ha visto a mí, ha visto al Padre" (Jn 14,9). Jesucristo es "la imagen del Dios invisible" (Col 1,15). Toda comprensión de Dios debe pasar por el rostro de Cristo.</p>
+
+                <p>En Jesús vemos a un Dios que llama a todos al arrepentimiento (Mt 11,28), que llora sobre los que no quieren venir a Él (Lc 19,41–42), que perdona al pecador arrepentido (Lc 7,48) y que entrega su vida voluntariamente: "Nadie me quita la vida, sino que yo de mí mismo la pongo" (Jn 10,18).</p>
+
+                <p>La cruz no contradice el carácter de Dios, lo revela: "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros" (Ro 5,8).</p>
+
+                <p>Dios quiere salvar</p>
+
+                <p>La Escritura afirma de manera reiterada la voluntad salvífica de Dios. "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito" (Jn 3,16). Dios "quiere que todos los hombres sean salvos y vengan al conocimiento de la verdad" (1 Tim 2,4). El Señor "no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento" (2 Pe 3,9).</p>
+
+                <p>Esta voluntad no es fingida ni limitada a un grupo secreto. Jesús lamenta la resistencia humana a la gracia: "¡Cuántas veces quise juntar a tus hijos… y no quisiste!" (Mt 23,37). Aquí la negativa no está en Dios, sino en la respuesta humana.</p>
+
+                <p>La gracia precede toda respuesta: "Nadie puede venir a mí, si el Padre que me envió no le trajere" (Jn 6,44). Pero esa gracia puede ser resistida: "¡Duros de cerviz… resistís siempre al Espíritu Santo!" (Hch 7,51). La salvación es obra de Dios, pero no se impone como un destino inexorable.</p>
+
+                <p>Un Dios digno de confianza</p>
+
+                <p>El Dios revelado en la Escritura no es engañoso ni ambiguo. "Dios no es hombre, para que mienta" (Nm 23,19). Su carácter es estable y fiel: "Fiel es el que prometió" (Heb 10,23). Por eso el creyente puede descansar en Él sin temor fatalista.</p>
+
+                <p>Creer en este Dios produce esperanza viva, no resignación: "Porque yo sé los pensamientos que tengo acerca de vosotros… pensamientos de paz, y no de mal" (Jer 29,11). Produce obediencia amorosa, no miedo servil: "El amor perfecto echa fuera el temor" (1 Jn 4,18).</p>
+
+                <p>Esta comprensión bíblica de Dios se encuentra en profunda sintonía con la tradición teológica arminiana clásica, particularmente en Jacobo Arminio, quien insistió en que toda doctrina debe ser coherente con el carácter revelado de Dios en Cristo y con el testimonio completo de la Escritura.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>

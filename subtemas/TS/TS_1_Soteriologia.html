@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">SOTERIOLOGÍA</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+Fundamento bíblico
+
+La soteriología cristiana no es una teoría abstracta sobre destinos eternos, sino la proclamación del obrar salvador de Dios en la historia. La pregunta bíblica no es primero quiénes están secretamente incluidos, sino cómo Dios salva al ser humano real, caído y responsable. “Palabra fiel y digna de ser recibida por todos: que Cristo Jesús vino al mundo para salvar a los pecadores” (1 Tim 1,15).
+
+La salvación es iniciativa de Dios, realizada en Cristo y aplicada por el Espíritu, pero recibida por el ser humano mediante una respuesta de fe genuina.
+
+La necesidad universal de salvación
+
+La Escritura afirma que todos los seres humanos se encuentran bajo el dominio del pecado y necesitan salvación. “No hay justo, ni aun uno” (Ro 3,10). El pecado no es solo una conducta aislada, sino una condición que afecta a toda la humanidad: “Por cuanto todos pecaron” (Ro 3,23).
+
+Esta condición implica una incapacidad real para salvarse por méritos propios: “Estabais muertos en vuestros delitos y pecados” (Ef 2,1). La salvación no puede originarse en el ser humano, sino únicamente en la gracia de Dios.
+
+La iniciativa salvadora de Dios
+
+La salvación comienza en Dios, no en la voluntad humana. “Nos salvó… no por obras de justicia que nosotros hubiéramos hecho, sino por su misericordia” (Tit 3,5). El amor de Dios precede toda respuesta: “En esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros” (1 Jn 4,10).
+
+Dios toma la iniciativa de llamar, ofrecer y hacer posible la salvación. “Porque de tal manera amó Dios al mundo” (Jn 3,16). La universalidad del amor divino fundamenta la universalidad de la oferta salvadora.
+
+La obra salvadora de Cristo
+
+La salvación se realiza exclusivamente en la persona y obra de Jesucristo. “Y en ningún otro hay salvación” (Hch 4,12). Su muerte es sustitutiva y suficiente: “Cristo murió por nuestros pecados” (1 Co 15,3).
+
+La Escritura afirma con claridad el alcance de esta obra: Cristo “se dio a sí mismo en rescate por todos” (1 Tim 2,6); “gustó la muerte por todos” (Heb 2,9). La suficiencia de la expiación no está limitada por un decreto previo, sino ofrecida genuinamente a todos los seres humanos.
+
+Sin embargo, esta obra no se aplica automáticamente. La salvación es ofrecida a todos, pero recibida por quienes creen.
+
+La gracia como don previo y necesario
+
+Nadie puede venir a Cristo sin la acción previa de la gracia. “Nadie puede venir a mí, si el Padre que me envió no le trajere” (Jn 6,44). Esta acción divina precede, acompaña y sostiene la respuesta humana.
+
+El Espíritu Santo convence, llama e ilumina: “Él convencerá al mundo de pecado, de justicia y de juicio” (Jn 16,8). Esta gracia es real y eficaz, pero no irresistible. La Escritura muestra que puede ser resistida: “Resistís siempre al Espíritu Santo” (Hch 7,51).
+
+La gracia no fuerza la salvación, la hace posible.
+
+La fe como respuesta salvadora
+
+La salvación se recibe por la fe. “Justificados, pues, por la fe, tenemos paz para con Dios” (Ro 5,1). La fe no es una obra meritoria, sino una respuesta confiada al don de Dios: “Porque por gracia sois salvos por medio de la fe” (Ef 2,8).
+
+La fe bíblica no es meramente intelectual, sino relacional y obediente. “La fe, si no tiene obras, está muerta” (Stg 2,17). No se trata de un acto mecánico producido sin conciencia, sino de una respuesta viva a la gracia ofrecida.
+
+Elección y predestinación en Cristo
+
+La Escritura habla de elección y predestinación, pero siempre en relación con Cristo. Dios “nos escogió en él antes de la fundación del mundo” (Ef 1,4). La elección no se presenta como una selección arbitraria de individuos sin referencia a la fe, sino como un propósito eterno de salvar en Cristo a quienes creen.
+
+La predestinación bíblica apunta al destino de los creyentes: ser conformados a la imagen del Hijo (Ro 8,29). No se trata de un decreto que condena previamente a otros, sino de un plan glorioso para los que están en Cristo.
+
+Justificación y regeneración
+
+La justificación es un acto gracioso de Dios por el cual el pecador es declarado justo en Cristo. “Siendo justificados gratuitamente por su gracia” (Ro 3,24). Esta justificación se recibe por la fe, no por obras de la ley (Gál 2,16).
+
+La regeneración acompaña esta obra: “El que está en Cristo, nueva criatura es” (2 Co 5,17). La salvación no es solo un cambio de estatus legal, sino una transformación real operada por el Espíritu Santo.
+
+Santificación como proceso viviente
+
+La salvación incluye un proceso continuo de santificación. “Esta es la voluntad de Dios: vuestra santificación” (1 Ts 4,3). El creyente es llamado a cooperar con la gracia: “Ocupaos en vuestra salvación… porque Dios es el que en vosotros produce así el querer como el hacer” (Fil 2,12–13).
+
+Esta cooperación no resta gloria a Dios, sino que la manifiesta en una vida transformada.
+
+Perseverancia y advertencias reales
+
+La Escritura llama a perseverar en la fe. “Si permanecéis en mí” (Jn 15,6). Las advertencias contra el apartarse no son retóricas, sino reales (Heb 3,12; 6,4–6). La seguridad cristiana se fundamenta en la fidelidad de Dios, pero se vive en una relación viva de fe perseverante.
+
+Dios es fiel para guardar al creyente (1 Co 1,8), pero no anula la responsabilidad de permanecer en Cristo.
+
+Salvación como relación viva
+
+La salvación no es un evento aislado ni un decreto impersonal, sino una relación viva con Dios en Cristo. “Esta es la vida eterna: que te conozcan a ti” (Jn 17,3). El creyente vive en esperanza, no en fatalismo, y en obediencia amorosa, no en temor servil.
+
+Esta comprensión soteriológica se encuentra en plena coherencia con la tradición cristiana clásica y fue articulada con especial claridad por Jacobo Arminio, quien sostuvo que la gracia de Dios es absolutamente necesaria, sinceramente ofrecida a todos y eficaz en quienes creen.
+</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>

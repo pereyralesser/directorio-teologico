@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">PNEUMATOLOGÍA</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+Fundamento bíblico
+
+La neumatología no es un apéndice de la teología cristiana ni una doctrina reservada a la experiencia subjetiva. La Escritura presenta al Espíritu Santo como actor central en la obra de Dios desde la creación hasta la consumación final. No hay revelación, salvación ni vida cristiana auténtica sin la obra del Espíritu. “Porque el Señor es el Espíritu; y donde está el Espíritu del Señor, allí hay libertad” (2 Co 3,17).
+
+El Espíritu Santo es Dios
+
+El Espíritu Santo no es una fuerza impersonal ni una influencia abstracta. Es una persona divina, plenamente Dios, que participa de la misma esencia que el Padre y el Hijo. En la Escritura se le atribuyen cualidades personales como voluntad (1 Co 12,11), entendimiento (Ro 8,27) y palabra (Hch 13,2). Mentirle al Espíritu es mentirle a Dios (Hch 5,3–4).
+
+El Espíritu es eterno (Heb 9,14), omnipresente (Sal 139,7) y santo por naturaleza, no solo por función. Su inclusión en la fórmula bautismal confirma su plena divinidad: “En el nombre del Padre, y del Hijo, y del Espíritu Santo” (Mt 28,19).
+
+El Espíritu en la creación y la revelación
+
+Desde el comienzo, el Espíritu está activo en la obra de Dios. “Y el Espíritu de Dios se movía sobre la faz de las aguas” (Gn 1,2). Él es dador de vida: “Envías tu Espíritu, son creados, y renuevas la faz de la tierra” (Sal 104,30).
+
+También es el Espíritu quien inspira la revelación escrita. “Los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo” (2 Pe 1,21). La Escritura no es producto de la voluntad humana, sino del obrar del Espíritu que guía sin anular la personalidad de los autores.
+
+El Espíritu Santo y Jesucristo
+
+La obra del Espíritu está inseparablemente unida a la persona de Cristo. Jesús es concebido por el Espíritu (Lc 1,35), ungido por el Espíritu (Lc 4,18) y conducido por el Espíritu en su ministerio (Lc 4,1). Su vida terrenal se desarrolla en plena dependencia del Espíritu.
+
+La resurrección misma está vinculada a la acción del Espíritu: “Si el Espíritu de aquel que levantó de los muertos a Jesús mora en vosotros…” (Ro 8,11). Así, el Espíritu no sustituye a Cristo, sino que glorifica a Cristo: “Él me glorificará” (Jn 16,14).
+
+El Espíritu Santo y la gracia preveniente
+
+La Escritura afirma que nadie puede venir a Cristo por sus propias fuerzas. “Nadie puede decir que Jesús es el Señor, sino por el Espíritu Santo” (1 Co 12,3). Es el Espíritu quien convence al mundo “de pecado, de justicia y de juicio” (Jn 16,8).
+
+Esta obra precede toda respuesta humana. El Espíritu llama, ilumina, persuade y capacita. Sin embargo, la Escritura es igualmente clara en afirmar que esta obra puede ser resistida. Esteban acusa al pueblo diciendo: “Vosotros resistís siempre al Espíritu Santo” (Hch 7,51). El Espíritu obra eficazmente, pero no de manera coercitiva.
+
+Aquí se afirma una acción real y universal del Espíritu que hace posible la fe, sin convertirla en un acto inevitable ni mecánico.
+
+El nuevo nacimiento y la morada del Espíritu
+
+La regeneración es obra del Espíritu. “El que no naciere de agua y del Espíritu, no puede entrar en el reino de Dios” (Jn 3,5). Este nuevo nacimiento no es una transformación meramente externa, sino una renovación interior: “Nos salvó… por el lavamiento de la regeneración y por la renovación en el Espíritu Santo” (Tit 3,5).
+
+El Espíritu mora en el creyente como sello y garantía: “Habiendo creído, fuisteis sellados con el Espíritu Santo de la promesa” (Ef 1,13). Esta morada no anula la responsabilidad del creyente, sino que lo capacita para una vida conforme a la voluntad de Dios.
+
+El Espíritu Santo y la santificación
+
+La vida cristiana es una vida en el Espíritu. “Si vivimos por el Espíritu, andemos también por el Espíritu” (Gál 5,25). La santificación no es fruto del esfuerzo humano aislado, sino de la cooperación viva con el Espíritu que transforma el carácter del creyente.
+
+El fruto del Espíritu no es impuesto desde fuera, sino producido desde dentro: “Mas el fruto del Espíritu es amor, gozo, paz…” (Gál 5,22–23). Sin embargo, el creyente puede entristecer al Espíritu (Ef 4,30) y apagar su acción (1 Ts 5,19), lo cual presupone una relación dinámica y responsable.
+
+El Espíritu y la perseverancia en la fe
+
+El Espíritu sostiene al creyente en la fe, pero no lo convierte en un agente pasivo. La Escritura exhorta a permanecer: “El que persevere hasta el fin, éste será salvo” (Mt 24,13). Estas exhortaciones solo tienen sentido si la perseverancia es real y significativa.
+
+El Espíritu es ayuda, consuelo y guía: “Os guiará a toda la verdad” (Jn 16,13), pero no reemplaza la respuesta consciente del creyente. La seguridad cristiana se fundamenta en la fidelidad de Dios y en la comunión viva con el Espíritu, no en un decreto incondicional desligado de la fe perseverante.
+
+El Espíritu y la misión de la Iglesia
+
+El Espíritu Santo capacita a la Iglesia para su misión en el mundo. “Recibiréis poder cuando haya venido sobre vosotros el Espíritu Santo, y me seréis testigos” (Hch 1,8). Los dones espirituales no existen para la exaltación individual, sino para la edificación del cuerpo de Cristo (1 Co 12,7).
+
+El Espíritu distribuye dones según su voluntad (1 Co 12,11), llamando a la unidad en la diversidad. Donde el Espíritu gobierna, no hay uniformidad forzada, sino comunión viva.
+
+El Espíritu como presencia viva de Dios
+
+El Espíritu no es un reemplazo temporal de Cristo, sino la presencia activa de Dios en su Iglesia. Por Él, Dios habita en los creyentes: “¿No sabéis que sois templo de Dios, y que el Espíritu de Dios mora en vosotros?” (1 Co 3,16). Esta presencia no es simbólica, sino real y transformadora.
+
+Esta comprensión del Espíritu Santo ha sido sostenida de manera coherente dentro de la tradición cristiana clásica y desarrollada con claridad por teólogos como Jacobo Arminio, quien afirmó que la gracia del Espíritu es absolutamente necesaria para la salvación, real en su obrar y resistible en su recepción.
+</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>

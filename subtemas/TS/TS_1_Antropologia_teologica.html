@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTORIO TEOLÓGICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales años 80 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at center, #ff00ff 0%, #0000ff 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+        }
+
+        /* Patrón de fondo diagonal */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Cabecera con efecto neón */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #00ffff,
+                0 0 70px #00ffff,
+                0 0 80px #00ffff,
+                0 0 100px #00ffff,
+                0 0 150px #00ffff;
+            color: #ffffff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 10px #ff00ff,
+                    0 0 20px #ff00ff,
+                    0 0 30px #ff00ff,
+                    0 0 40px #00ffff,
+                    0 0 70px #00ffff,
+                    0 0 80px #00ffff,
+                    0 0 100px #00ffff,
+                    0 0 150px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 5px #ff00ff,
+                    0 0 10px #ff00ff,
+                    0 0 15px #ff00ff,
+                    0 0 20px #00ffff,
+                    0 0 35px #00ffff,
+                    0 0 40px #00ffff,
+                    0 0 50px #00ffff,
+                    0 0 75px #00ffff;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        /* Barra de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: 3px solid #ffff00;
+            border-radius: 8px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #00ff00, #ffff00);
+            border-color: #ff00ff;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Bloques de categoría */
+        .category-block {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border: 4px solid #00ffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 20px rgba(255, 0, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-block::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #00ff00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .links-list {
+            list-style: none;
+        }
+
+        .link-item {
+            margin-bottom: 12px;
+        }
+
+        .link-button {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ff00ff, #8a2be2);
+            color: white;
+            text-decoration: none;
+            border: 2px solid #ffff00;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+            border-color: #ff00ff;
+        }
+
+        /* Área para agregar nuevos */
+        .add-new-section {
+            background: linear-gradient(135deg, #0d0d1a, #0a1428);
+            border: 4px dashed #ff00ff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .add-new-title {
+            font-size: 2rem;
+            color: #00ff00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .add-new-instructions {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: #ffff00;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            text-align: left;
+        }
+
+        /* Estilos para párrafos dentro de las instrucciones */
+        .add-new-instructions p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+
+        .add-new-instructions p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #00ff00;
+            border-radius: 12px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .footer-content {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            color: #00ffff;
+            line-height: 1.5;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <h1 class="logo">DIRECTORIO TEOLÓGICO</h1>
+        <p class="subtitle">Recursos y Enlaces de Teología Organizados</p>
+        
+        <!-- Barra de navegación -->
+        <nav>
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#nuevos" class="nav-link">Nuevos</a>
+            <a href="#populares" class="nav-link">Populares</a>
+            <a href="#todos" class="nav-link">Todos</a>
+        </nav>
+    </header>
+
+    <!-- Sección principal -->
+    <main class="main-container">
+
+        <!-- Área para agregar nuevos elementos -->
+        <!-- COMENTARIO: Para agregar nuevas categorías, copie el bloque de categoría anterior y modifique el ID, título y enlaces -->
+        <section class="add-new-section">
+            <h2 class="add-new-title">ANTROPOLOGÍA TEOLÓGICA</h2>
+            <div class="add-new-instructions">
+                <!-- COMENTARIO: Instrucciones para expandir el directorio -->
+                <p>Fundamento bíblico</p>
+Fundamento bíblico
+
+La antropología teológica no comienza preguntando qué piensa el ser humano de sí mismo, sino qué dice Dios acerca del ser humano. La Escritura no idealiza a la humanidad ni la reduce a una condición irremediable sin dignidad. El ser humano es presentado simultáneamente como criatura creada con gloria y como criatura caída necesitada de redención. “¿Qué es el hombre, para que tengas de él memoria…?” (Sal 8,4).
+
+El ser humano como creación de Dios
+
+El ser humano es creación directa de Dios, no producto del azar ni una emanación divina. “Entonces Jehová Dios formó al hombre del polvo de la tierra, y sopló en su nariz aliento de vida” (Gn 2,7). La vida humana tiene origen en la voluntad creadora de Dios y depende de Él en todo momento.
+
+El hombre y la mujer son creados a imagen de Dios: “Y creó Dios al hombre a su imagen, a imagen de Dios lo creó; varón y hembra los creó” (Gn 1,27). Esta imagen no consiste en divinidad, sino en una capacidad relacional, moral y espiritual que distingue al ser humano del resto de la creación.
+
+La imagen de Dios confiere dignidad a toda persona humana, independientemente de su condición moral o espiritual. Por eso la vida humana tiene valor inviolable (Gn 9,6).
+
+La condición original del ser humano
+
+La Escritura presenta al ser humano originalmente como bueno, creado para la comunión con Dios y con responsabilidad real. “Y vio Dios todo lo que había hecho, y he aquí que era bueno en gran manera” (Gn 1,31). El ser humano fue creado con capacidad de obedecer, amar y decidir.
+
+La libertad humana no es una ilusión. Dios coloca al ser humano en una relación moral real: “De todo árbol del huerto podrás comer; mas del árbol de la ciencia del bien y del mal no comerás” (Gn 2,16–17). Este mandato presupone una posibilidad auténtica de obediencia o desobediencia.
+
+La caída y el pecado
+
+El pecado entra en la experiencia humana por la desobediencia voluntaria. “Por cuanto todos pecaron, y están destituidos de la gloria de Dios” (Ro 3,23). El pecado no es solo un error o una debilidad, sino una ruptura real de la relación con Dios.
+
+Como consecuencia, la naturaleza humana queda afectada en todas sus dimensiones. “Engañoso es el corazón más que todas las cosas” (Jer 17,9). El ser humano se vuelve incapaz de salvarse a sí mismo por sus propios méritos (Ef 2,1). Sin embargo, esta corrupción no implica la pérdida total de la imagen de Dios ni la anulación absoluta de la responsabilidad moral.
+
+La Escritura sigue llamando al ser humano a responder, arrepentirse y volver a Dios, lo cual presupone que sigue siendo un agente moral real (Is 55,7; Ez 18,30–32).
+
+La incapacidad humana y la necesidad de la gracia
+
+El ser humano, en su condición caída, no puede restaurar por sí mismo la comunión con Dios. “Porque el querer el bien está en mí, pero no el hacerlo” (Ro 7,18). La salvación no surge de la iniciativa humana, sino de la gracia divina: “No por obras, para que nadie se gloríe” (Ef 2,9).
+
+Sin embargo, esta incapacidad no equivale a una imposibilidad absoluta de responder a Dios bajo la acción de su gracia. La Escritura presenta a Dios llamando al ser humano y responsabilizándolo por su respuesta: “Volveos a mí, y seréis salvos” (Is 45,22).
+
+Aquí se afirma una dependencia radical de la gracia sin negar la realidad de la respuesta humana.
+
+Libertad humana y responsabilidad moral
+
+La Biblia presenta al ser humano como responsable de sus decisiones delante de Dios. “Cada uno dará a Dios cuenta de sí” (Ro 14,12). El llamado al arrepentimiento sería incoherente si la respuesta humana fuera una ficción (Hch 17,30).
+
+Dios no se complace en la muerte del impío, sino que llama al cambio real: “Convertíos, pues, y viviréis” (Ez 18,32). Estas exhortaciones presuponen una libertad real, sostenida y habilitada por la gracia divina, no una autonomía absoluta ni una determinación fatalista.
+
+El ser humano y la gracia restauradora
+
+La gracia de Dios no solo perdona, sino que restaura la humanidad conforme al propósito original. “Si alguno está en Cristo, nueva criatura es” (2 Co 5,17). La salvación no anula la humanidad, la sana.
+
+En Cristo, el ser humano es llamado a ser renovado conforme a la imagen de Dios: “Vestíos del nuevo hombre, creado según Dios en la justicia y santidad de la verdad” (Ef 4,24). La redención no destruye la libertad, sino que la libera del dominio del pecado (Ro 6,22).
+
+Antropología a la luz de Cristo
+
+Jesucristo es el verdadero hombre. “Porque así como en Adán todos mueren, también en Cristo todos serán vivificados” (1 Co 15,22). Cristo revela no solo quién es Dios, sino qué está llamado a ser el ser humano.
+
+La humanidad restaurada se comprende a partir de Cristo, no de Adán caído. Él es “el postrer Adán” (1 Co 15,45), en quien se inaugura una nueva creación donde el ser humano puede vivir en comunión real con Dios.
+
+Dignidad, pecado y esperanza
+
+La antropología bíblica sostiene una tensión esencial: el ser humano es profundamente pecador y profundamente digno. No es un mero objeto de decretos, ni un sujeto autónomo autosuficiente. Es una criatura amada, caída, llamada y responsable.
+
+Esta comprensión ha sido desarrollada con claridad dentro de la tradición cristiana clásica y de modo particular por Jacobo Arminio, quien sostuvo que la condición caída del ser humano exige una gracia real y previa, pero no justifica negar su responsabilidad moral ni su capacidad de responder bajo dicha gracia.
+</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            DIRECTORIO TEOLÓGICO © 2026<br>
+            CONTACTO: omarpereyra72cba@outlook.com<br>
+        </div>
+    </footer>
+
+    <!-- COMENTARIO: Espacio preparado para formulario de sugerencias (descomentar cuando se implemente)
+    <div id="suggestions-form" style="display: none;">
+        <!-- Formulario de sugerencias irá aquí -->
+    </div>
+    -->
+</body>
+</html>
